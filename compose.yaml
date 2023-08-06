@@ -3,4 +3,4 @@ services:
   jammy:
     build:
       context: .
-      dockerfile: Dockerfile.jammy
+      dockerfile: jammy.dockerfile
