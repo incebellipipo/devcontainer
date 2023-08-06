@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  jammy:
+    build:
+      context: .
+      dockerfile: Dockerfile.jammy
