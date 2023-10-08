@@ -1,7 +1,7 @@
 FROM debian:bookworm
 
 # Install python, system tools, and some python dependencies
-RUN apt update && apt upgrade -yq ;\
+RUN apt update ;\
     apt install -yq \
         python3 \
         python3-pip \
@@ -13,7 +13,9 @@ RUN apt update && apt upgrade -yq ;\
     apt autoclean
 
 # Set the locale
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+RUN \
+    locale-gen en_US.UTF-8 ;\
+    sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
