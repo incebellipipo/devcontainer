@@ -1,4 +1,4 @@
-name: ci
+name: Docker Hub
 
 on:
   push:
@@ -11,7 +11,9 @@ jobs:
   docker:
     strategy:
       matrix:
-        names: ['bookworm', 'focal', 'humble', 'jammy', 'noetic']
+        flavor: ['debian',    'ubuntu',   'ubuntu', 'ros',    'ros']
+        distro: ['bookworm',  'focal',    'jammy',  'humble', 'noetic']
+
     runs-on: ubuntu-latest
     steps:
       -
@@ -34,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ${{ matrix.names }}.dockerfile
+          file: ${{ matrix.flavor }}/${{ matrix.distro }}.dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: incebellipipo/devcontainer:${{ matrix.names }}
+          tags: incebellipipo/devcontainer:${{ matrix.distro }}

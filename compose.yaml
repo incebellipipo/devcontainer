@@ -3,26 +3,26 @@ services:
   jammy:
     build:
       context: .
-      dockerfile: jammy.dockerfile
+      dockerfile: ubuntu/jammy.dockerfile
     image: incebellipipo/dockerfile:jammy
   focal:
     build:
       context: .
-      dockerfile: focal.dockerfile
+      dockerfile: ubuntu/focal.dockerfile
     image: incebellipipo/dockerfile:focal
   bookworm:
     build:
       context: .
-      dockerfile: bookworm.dockerfile
+      dockerfile: debian/bookworm.dockerfile
     image: incebellipipo/dockerfile:bookworm
   humble:
     build:
       context: .
-      dockerfile: humble.dockerfile
+      dockerfile: ros/humble.dockerfile
     image: incebellipipo/dockerfile:humble
   noetic:
     build:
       context: .
-      dockerfile: noetic.dockerfile
+      dockerfile: ros/noetic.dockerfile
     image: incebellipipo/dockerfile:noetic
 
