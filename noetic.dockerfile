@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ros:noetic
 
 # Install python, system tools, and some python dependencies
 RUN apt update && apt upgrade -yq ;\
@@ -9,6 +9,7 @@ RUN apt update && apt upgrade -yq ;\
         curl \
         git \
         sudo \
+        ros-noetic-ros-base \
         locales ;\
     apt autoclean
 

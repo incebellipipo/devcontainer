@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:focal
 
 # Install python, system tools, and some python dependencies
 RUN apt update && apt upgrade -yq ;\

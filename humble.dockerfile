@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ros:humble
 
 # Install python, system tools, and some python dependencies
 RUN apt update && apt upgrade -yq ;\
@@ -9,6 +9,8 @@ RUN apt update && apt upgrade -yq ;\
         curl \
         git \
         sudo \
+        ros-humble-ros-base \
+        ros-dev-tools \
         locales ;\
     apt autoclean
 

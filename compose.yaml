@@ -5,8 +5,24 @@ services:
       context: .
       dockerfile: jammy.dockerfile
     image: incebellipipo/dockerfile:jammy
+  focal:
+    build:
+      context: .
+      dockerfile: focal.dockerfile
+    image: incebellipipo/dockerfile:focal
   bookworm:
     build:
       context: .
       dockerfile: bookworm.dockerfile
     image: incebellipipo/dockerfile:bookworm
+  humble:
+    build:
+      context: .
+      dockerfile: humble.dockerfile
+    image: incebellipipo/dockerfile:humble
+  noetic:
+    build:
+      context: .
+      dockerfile: noetic.dockerfile
+    image: incebellipipo/dockerfile:noetic
+
