@@ -11,8 +11,17 @@ jobs:
   docker:
     strategy:
       matrix:
-        flavor: ['debian',    'ubuntu',   'ubuntu', 'ros',    'ros']
-        distro: ['bookworm',  'focal',    'jammy',  'humble', 'noetic']
+        image:
+          - flavor: 'debian'
+            distro: 'bookworm'
+          - flavor: 'ubuntu'
+            distro: 'focal'
+          - flavor: 'ubuntu'
+            distro: 'jammy'
+          - flavor: 'ros'
+            distro: 'humble'
+          - flavor: 'ros'
+            distro: 'noetic'
 
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ${{ matrix.flavor }}/${{ matrix.distro }}.dockerfile
+          file: ${{ matrix.image.flavor }}/${{ matrix.image.distro }}.dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: incebellipipo/devcontainer:${{ matrix.distro }}
+          tags: incebellipipo/devcontainer:${{ matrix.image.distro }}
