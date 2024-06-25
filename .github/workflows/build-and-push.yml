@@ -22,6 +22,8 @@ jobs:
             distro: 'humble'
           - flavor: 'ros'
             distro: 'noetic'
+          - flavor: 'ros'
+            distro: 'rolling'
 
     runs-on: ubuntu-latest
     steps:
