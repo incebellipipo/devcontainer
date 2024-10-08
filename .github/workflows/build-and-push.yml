@@ -24,6 +24,8 @@ jobs:
             distro: 'noetic'
           - flavor: 'ros'
             distro: 'rolling'
+          - flavor: 'ros'
+            distro: 'jazzy'
 
     runs-on: ubuntu-latest
     steps:
