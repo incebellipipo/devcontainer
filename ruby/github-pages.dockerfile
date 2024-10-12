@@ -2,7 +2,7 @@ FROM incebellipipo/devcontainer:jammy
 
 SHELL ["/bin/bash", "-c"]
 
-ENV RUBY_VERSION 2.7.8
+ENV RUBY_VERSION 3.3.4
 
 RUN sudo apt update ; \
     sudo apt install -qy \
