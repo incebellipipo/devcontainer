@@ -26,6 +26,8 @@ jobs:
             distro: 'rolling'
           - flavor: 'ros'
             distro: 'jazzy'
+          - flavor: 'ruby'
+            distro: 'github-pages'
 
     runs-on: ubuntu-latest
     steps:
