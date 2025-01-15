@@ -1,5 +1,11 @@
 version: "3.7"
 services:
+  # Ubuntu
+  noble:
+    build:
+      context: .
+      dockerfile: ubuntu/noble.dockerfile
+    image: incebellipipo/dockerfile:noble
   jammy:
     build:
       context: .
@@ -10,19 +16,31 @@ services:
       context: .
       dockerfile: ubuntu/focal.dockerfile
     image: incebellipipo/dockerfile:focal
+
+  # Debian
   bookworm:
     build:
       context: .
       dockerfile: debian/bookworm.dockerfile
     image: incebellipipo/dockerfile:bookworm
+
+  # ROS
   humble:
     build:
       context: .
       dockerfile: ros/humble.dockerfile
     image: incebellipipo/dockerfile:humble
+
+  # ROS
   noetic:
     build:
       context: .
       dockerfile: ros/noetic.dockerfile
     image: incebellipipo/dockerfile:noetic
+
+  jazzy:
+    build:
+      context: .
+      dockerfile: ros/jazzy.dockerfile
+    image: incebellipipo/dockerfile:jazzy
 

@@ -14,10 +14,14 @@ jobs:
         image:
           - flavor: 'debian'
             distro: 'bookworm'
+
           - flavor: 'ubuntu'
             distro: 'focal'
           - flavor: 'ubuntu'
             distro: 'jammy'
+          - flavor: 'ubuntu'
+            distro: noble
+
           - flavor: 'ros'
             distro: 'humble'
           - flavor: 'ros'
@@ -26,6 +30,7 @@ jobs:
             distro: 'rolling'
           - flavor: 'ros'
             distro: 'jazzy'
+
           - flavor: 'ruby'
             distro: 'github-pages'
 
