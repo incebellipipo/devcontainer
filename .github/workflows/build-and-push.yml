@@ -10,6 +10,7 @@ on:
 jobs:
   docker:
     strategy:
+      fail-fast: false
       matrix:
         image:
           - flavor: debian
