@@ -11,6 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         curl \
         git \
         sudo \
+        bash-completion \
         locales && \
     apt autoclean
 

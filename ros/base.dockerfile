@@ -1,6 +1,9 @@
-ARG DISTRO="latest"
+ARG DISTRO="jazzy"
 FROM ros:${DISTRO}
 
+ARG DISTRO
+
+ENV ROS_DISTRO=${DISTRO}
 # Install python, system tools, and some python dependencies
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt update && apt upgrade -yq &&\
@@ -11,8 +14,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         curl \
         git \
         sudo \
-        ros-humble-ros-base \
+        ros-${ROS_DISTRO}-ros-base \
         ros-dev-tools \
+        bash-completion \
         locales &&\
     apt autoclean
 
