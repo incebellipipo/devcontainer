@@ -66,7 +66,7 @@ jobs:
           context: .
           file: ${{ matrix.image.flavor }}/base.dockerfile
           build-args: |
-            DISTRO="${{ matrix.image.distro }}"
+            DISTRO=${{ matrix.image.distro }}
           push: true
           platforms: linux/amd64,linux/arm64
           tags: incebellipipo/devcontainer:${{ matrix.image.distro }}
