@@ -12,7 +12,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         curl \
         git \
         sudo \
-        neovim \
         locales && \
     apt autoclean
 

@@ -13,7 +13,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         sudo \
         ros-humble-ros-base \
         ros-dev-tools \
-        neovim \
         locales &&\
     apt autoclean
 
