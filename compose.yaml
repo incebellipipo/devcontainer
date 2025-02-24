@@ -1,46 +1,73 @@
-version: "3.7"
 services:
   # Ubuntu
   noble:
     build:
       context: .
-      dockerfile: ubuntu/noble.dockerfile
-    image: incebellipipo/dockerfile:noble
+      dockerfile: ubuntu/base.dockerfile
+      args:
+        - DISTRO=noble
+      tags:
+        - devcontainer:noble
+    image: incebellipipo/devcontainer:noble
   jammy:
     build:
       context: .
-      dockerfile: ubuntu/jammy.dockerfile
-    image: incebellipipo/dockerfile:jammy
+      dockerfile: ubuntu/base.dockerfile
+      args:
+        - DISTRO=jammy
+      tags:
+        - devcontainer:jammy
+    image: incebellipipo/devcontainer:jammy
   focal:
     build:
       context: .
-      dockerfile: ubuntu/focal.dockerfile
-    image: incebellipipo/dockerfile:focal
+      dockerfile: ubuntu/base.dockerfile
+      args:
+        - DISTRO=focal
+      tags:
+        - devcontainer:focal
+    image: incebellipipo/devcontainer:focal
 
   # Debian
   bookworm:
     build:
       context: .
-      dockerfile: debian/bookworm.dockerfile
-    image: incebellipipo/dockerfile:bookworm
+      dockerfile: debian/base.dockerfile
+      args:
+        - DISTRO=bookworm
+      tags:
+        - devcontainer:bookworm
+    image: incebellipipo/devcontainer:bookworm
 
   # ROS
   humble:
     build:
       context: .
-      dockerfile: ros/humble.dockerfile
-    image: incebellipipo/dockerfile:humble
+      dockerfile: ros/base.dockerfile
+      args:
+        - DISTRO=humble
+      tags:
+        - devcontainer:humble
+    image: incebellipipo/devcontainer:humble
 
   # ROS
   noetic:
     build:
       context: .
-      dockerfile: ros/noetic.dockerfile
-    image: incebellipipo/dockerfile:noetic
+      dockerfile: ros/base.dockerfile
+      args:
+        - DISTRO=noetic
+      tags:
+        - devcontainer:noetic
+    image: incebellipipo/devcontainer:noetic
 
   jazzy:
     build:
       context: .
-      dockerfile: ros/jazzy.dockerfile
-    image: incebellipipo/dockerfile:jazzy
+      dockerfile: ros/base.dockerfile
+      args:
+        - DISTRO=jazzy
+      tags:
+        - devcontainer:jazzy
+    image: incebellipipo/devcontainer:jazzy
 

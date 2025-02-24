@@ -1,7 +1,10 @@
-FROM debian:bookworm
+# Define a build argument for the Ubuntu version
+ARG DISTRO="latest"
+FROM ubuntu:${DISTRO}
 
 # Install python, system tools, and some python dependencies
-RUN apt update ;\
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt update && apt upgrade -yq && \
     apt install -yq \
         python3 \
         python3-pip \
@@ -9,21 +12,19 @@ RUN apt update ;\
         curl \
         git \
         sudo \
-        locales ;\
+        neovim \
+        locales && \
     apt autoclean
 
-# Set the locale
-RUN \
-    locale-gen en_US.UTF-8 ;\
-    sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-    locale-gen
+# Set up locales
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Create a user named 'developer' and assign sudo rules to it
-RUN adduser --disabled-password --gecos '' developer ;\
-    adduser developer sudo ;\
+RUN adduser --disabled-password --gecos '' developer && \
+    adduser developer sudo && \
     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Set environment variables to seamlessly work with python
